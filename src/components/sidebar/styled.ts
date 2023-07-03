@@ -21,6 +21,7 @@ export const HeaderTitle = styled.h2`
   text-align: center;
   border-left: 6px solid #f8d442;
   padding-left: 12.5px;
+  margin-top: 0;
 `;
 
 export const AvatarImg = styled.img`

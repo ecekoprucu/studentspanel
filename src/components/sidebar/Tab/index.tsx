@@ -1,5 +1,7 @@
 import React from 'react';
+import { useMatch } from 'react-router-dom';
 import * as Styled from './styled';
+import { handleRouteNameMatch } from '../../../utils/handleRouteNameMatch';
 
 type Props = {
   icon: string;
@@ -7,8 +9,10 @@ type Props = {
 };
 
 export const Tab = ({ icon, text }: Props) => {
+  const activeRoute = useMatch(`/${handleRouteNameMatch(text)}`);
+
   return (
-    <Styled.Container>
+    <Styled.Container active={activeRoute?.pathname}>
       <Styled.InnerWrapper>
         <img width={17} height={20} src={icon} alt={text} />
         <Styled.TabText>{text}</Styled.TabText>

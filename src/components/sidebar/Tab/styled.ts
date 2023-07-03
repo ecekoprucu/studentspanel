@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ active: string | undefined }>`
   width: 200px;
   display: flex;
   justify-content: center;
@@ -8,6 +8,7 @@ export const Container = styled.div`
   padding: 13px;
   margin-bottom: 20px;
   transition: 0.3s;
+  background: ${(props) => (props.active ? '#feaf00' : 'transparent')};
   &:hover {
     background: #feaf00;
     cursor: pointer;

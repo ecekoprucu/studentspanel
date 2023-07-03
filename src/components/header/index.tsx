@@ -18,8 +18,8 @@ export const Header = () => {
         alt="Back"
       />
       <img
-        width={18}
-        height={18}
+        width={17}
+        height={20}
         src={process.env.PUBLIC_URL + '/assets/bell.svg'}
         alt="Notification"
       />
