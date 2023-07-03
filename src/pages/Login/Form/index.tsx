@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Input } from '../../../components/input';
-import { CustomButton } from '../../../components/button';
+import { Input } from 'src/components/input';
+import { CustomButton } from 'src/components/button';
 import * as Styled from './styled';
 
 export const CustomForm = () => {

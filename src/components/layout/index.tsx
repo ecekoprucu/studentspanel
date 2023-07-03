@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Sidebar } from '../../components/sidebar';
-import { Header } from '../../components/header';
+import { Header } from '../header';
+import { Sidebar } from '../sidebar';
 
 import * as Styled from './styled';
 

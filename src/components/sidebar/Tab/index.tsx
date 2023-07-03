@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMatch } from 'react-router-dom';
 import * as Styled from './styled';
-import { handleRouteNameMatch } from '../../../utils/handleRouteNameMatch';
+import { handleRouteNameMatch } from 'src/utils/handleRouteNameMatch';
 
 type Props = {
   icon: string;
