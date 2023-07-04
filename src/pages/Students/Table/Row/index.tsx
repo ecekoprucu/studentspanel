@@ -2,8 +2,10 @@ import React from 'react';
 
 import { Student } from 'src/utils/types';
 import * as Styled from './styled';
+import { Link } from 'react-router-dom';
 
 export const Row = ({
+  id,
   image,
   firstName,
   maidenName,
@@ -33,13 +35,15 @@ export const Row = ({
       <Styled.ColText>{domain}</Styled.ColText>
       <Styled.ColText>{company.name}</Styled.ColText>
       <Styled.ActionsContainer>
-        <img
-          style={{
-            cursor: 'pointer',
-          }}
-          src={process.env.PUBLIC_URL + '/assets/edit.svg'}
-          alt="edit"
-        />
+        <Link to={`/edit/${id}`}>
+          <img
+            style={{
+              cursor: 'pointer',
+            }}
+            src={process.env.PUBLIC_URL + '/assets/edit.svg'}
+            alt="edit"
+          />
+        </Link>
         <img
           style={{
             cursor: 'pointer',

@@ -25,3 +25,8 @@ export type Student = {
   domain: string;
   image: string;
 };
+
+export type ContextType = {
+  students: Student[];
+  setStudents: (students: Student[]) => void;
+};
