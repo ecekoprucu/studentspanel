@@ -68,6 +68,39 @@ export const Form = ({ data, type }: Props) => {
           console.error(error);
         });
     }
+
+    if (type === 'add') {
+      const dummyStudent = {
+        id: students.length,
+        firstName: (formRef.current?.elements[0] as HTMLInputElement).value,
+        maidenName: (formRef.current?.elements[1] as HTMLInputElement).value,
+        lastName: (formRef.current?.elements[2] as HTMLInputElement).value,
+        email: (formRef.current?.elements[3] as HTMLInputElement).value,
+        phone: (formRef.current?.elements[4] as HTMLInputElement).value,
+        domain: (formRef.current?.elements[5] as HTMLInputElement).value,
+        company: {
+          address: {
+            address: 'dummy address',
+            city: 'dummy city',
+            coordinates: {
+              lat: 36,
+              lng: 24,
+            },
+            postalCode: 'dummy postal code',
+            state: 'dummy state',
+          },
+          department: 'dummy department',
+          title: 'dummy title',
+          name: (formRef.current?.elements[6] as HTMLInputElement).value,
+        },
+        image: (formRef.current?.elements[7] as HTMLInputElement).value,
+      };
+
+      setStudents([...students, dummyStudent]);
+      navigate('/students', {
+        state: 'updated',
+      });
+    }
   };
 
   return (
