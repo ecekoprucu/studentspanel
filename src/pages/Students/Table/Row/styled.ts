@@ -27,3 +27,9 @@ export const ActionsContainer = styled.div`
   gap: 1rem;
   justify-content: space-evenly;
 `;
+
+export const DeleteButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+`;

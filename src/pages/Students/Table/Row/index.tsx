@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import { Student } from 'src/utils/types';
+import { ContextType, Student } from 'src/utils/types';
 import * as Styled from './styled';
 import { Link } from 'react-router-dom';
+import DataContext from 'src/context/studentContext';
 
 export const Row = ({
   id,
@@ -15,6 +16,12 @@ export const Row = ({
   domain,
   company,
 }: Student) => {
+  const { students, setStudents } = useContext(DataContext) as ContextType;
+
+  const handleDelete = () => {
+    setStudents(students.filter((student) => student.id !== id));
+  };
+
   return (
     <Styled.Container>
       <img
@@ -44,13 +51,15 @@ export const Row = ({
             alt="edit"
           />
         </Link>
-        <img
-          style={{
-            cursor: 'pointer',
-          }}
-          src={process.env.PUBLIC_URL + '/assets/delete.svg'}
-          alt="delete"
-        />
+        <Styled.DeleteButton onClick={handleDelete}>
+          <img
+            style={{
+              cursor: 'pointer',
+            }}
+            src={process.env.PUBLIC_URL + '/assets/delete.svg'}
+            alt="delete"
+          />
+        </Styled.DeleteButton>
       </Styled.ActionsContainer>
     </Styled.Container>
   );
