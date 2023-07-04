@@ -15,7 +15,8 @@ export const Layout = ({ children }: Props) => {
       <Sidebar />
       <div
         style={{
-          width: '85vw',
+          width: '82vw',
+          marginLeft: '18vw',
         }}
       >
         <Header />

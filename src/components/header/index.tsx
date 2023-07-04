@@ -1,16 +1,10 @@
 import React from 'react';
 
+import * as Styled from './styled';
+
 export const Header = () => {
   return (
-    <div
-      style={{
-        height: 60,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 30px',
-      }}
-    >
+    <Styled.Container>
       <img
         width={18}
         height={18}
@@ -23,6 +17,6 @@ export const Header = () => {
         src={process.env.PUBLIC_URL + '/assets/bell.svg'}
         alt="Notification"
       />
-    </div>
+    </Styled.Container>
   );
 };

@@ -10,6 +10,7 @@ export const Container = styled.div`
   width: 15vw;
   overflow: hidden;
   justify-content: space-evenly;
+  position: fixed;
 `;
 
 export const HeaderTitle = styled.h2`

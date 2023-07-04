@@ -5,6 +5,10 @@ export const CustomButton = styled.button`
   border-radius: 4px;
   width: 100%;
   border: none;
+  cursor: pointer;
+  &:hover {
+    background: #f5a200;
+  }
 `;
 
 export const CustomButtonText = styled.p`
