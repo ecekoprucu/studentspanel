@@ -29,27 +29,23 @@ export const Students = () => {
     ).then((response) => {
       response.json().then((data) => {
         setStudents(data.users);
+        setTotalData(data.total);
       });
     });
 
-    fetch('https://dummyjson.com/users')
-      .then((res) => res.json())
-      .then((res) => setTotalData(res.total));
+    if (!searchText.length) {
+      fetch('https://dummyjson.com/users')
+        .then((res) => res.json())
+        .then((res) => setTotalData(res.total));
+    }
   }, [searchText, pageIndex, selectedSize]);
-
-  if (students.length === 0) {
-    return (
-      <Layout>
-        <Styled.Container>No Data...</Styled.Container>
-      </Layout>
-    );
-  }
 
   return (
     <Layout>
       <Styled.Container>
         <InnerHeader searchText={searchText} setSearchText={setSearchText} />
-        <Table students={students} />
+        {students.length > 0 && <Table students={students} />}
+        {students.length === 0 && <div>No Data...</div>}
         <Styled.PaginationWrappeer>
           <Pagination
             totalData={totalData}

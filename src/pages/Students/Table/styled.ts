@@ -6,6 +6,7 @@ export const TableHeader = styled.div`
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
   padding: 10px 15px;
+  grid-gap: 15px;
 `;
 
 export const TableHeaderText = styled.p`
