@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { Layout } from 'src/components/layout';
 
@@ -17,6 +18,8 @@ export const Students = () => {
 
   const [searchText, setSearchText] = useState('');
 
+  const location = useLocation();
+
   useEffect(() => {
     if (searchText.length > 0) {
       setPageIndex(0);
@@ -24,6 +27,8 @@ export const Students = () => {
   }, [searchText]);
 
   useEffect(() => {
+    if (location.state === 'updated') return;
+
     fetch(
       `https://dummyjson.com/users${
         searchText.length > 0 ? '/search?q=' + searchText : ''
