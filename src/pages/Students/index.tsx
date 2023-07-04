@@ -37,12 +37,19 @@ export const Students = () => {
       .then((res) => setTotalData(res.total));
   }, [searchText, pageIndex, selectedSize]);
 
-  console.log(students);
+  if (students.length === 0) {
+    return (
+      <Layout>
+        <Styled.Container>No Data...</Styled.Container>
+      </Layout>
+    );
+  }
+
   return (
     <Layout>
       <Styled.Container>
         <InnerHeader searchText={searchText} setSearchText={setSearchText} />
-        {students.length && <Table students={students} />}
+        <Table students={students} />
         <Styled.PaginationWrappeer>
           <Pagination
             totalData={totalData}

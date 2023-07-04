@@ -48,7 +48,7 @@ export const Sidebar = () => {
           <Tab key={'tab-' + index} icon={tab.icon} text={tab.text} />
         ))}
       </div>
-      <Styled.LogoutButton>
+      <Styled.LogoutButton to="/">
         <span>Logout</span>
         <img src={process.env.PUBLIC_URL + '/assets/logout.svg'} alt="Logout" />
       </Styled.LogoutButton>

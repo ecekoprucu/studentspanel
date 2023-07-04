@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   height: 100vh;
@@ -40,7 +41,7 @@ export const Role = styled.p`
   color: #feaf00;
 `;
 
-export const LogoutButton = styled.button`
+export const LogoutButton = styled(Link)`
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -53,4 +54,7 @@ export const LogoutButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  align-items: center;
+  text-decoration: none;
+  color: #000000;
 `;
