@@ -127,6 +127,7 @@ export const Form = ({ data, type }: Props) => {
     }
   };
 
+  // TODO: Add form validation
   return (
     <div>
       <Styled.Form ref={formRef} onSubmit={handleSubmit}>
