@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Layout } from 'src/components/layout';
 
@@ -18,6 +18,7 @@ export const Students = () => {
 
   const [searchText, setSearchText] = useState('');
 
+  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -50,6 +51,12 @@ export const Students = () => {
         .then((res) => setTotalData(res.total));
     }
   }, [searchText, pageIndex, selectedSize, totalData]);
+
+  useEffect(() => {
+    if (location.state === 'updated') {
+      navigate('/students', { state: undefined });
+    }
+  }, [navigate, location.state]);
 
   return (
     <Layout>
