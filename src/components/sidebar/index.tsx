@@ -34,9 +34,12 @@ export const Sidebar = () => {
   return (
     <Styled.Container>
       <Styled.HeaderTitle>MANAGE COURSES</Styled.HeaderTitle>
-      <div>
+      <div
+        style={{
+          minWidth: '60%',
+        }}
+      >
         <Styled.AvatarImg
-          width={150}
           src={process.env.PUBLIC_URL + '/avatar.png'}
           alt="Profile"
         />

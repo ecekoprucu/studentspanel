@@ -28,6 +28,7 @@ export const HeaderTitle = styled.h2`
 
 export const AvatarImg = styled.img`
   border-radius: 100%;
+  min-width: 100%;
 `;
 
 export const Name = styled.h2`
