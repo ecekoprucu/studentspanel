@@ -12,7 +12,7 @@ export const Edit = () => {
 
   useEffect(() => {
     fetch(
-      'https://dummyjson.com/users/1?select=firstName,lastName,maidenName,email,phone,company,domain,image',
+      `https://dummyjson.com/users/${id}?select=firstName,lastName,maidenName,email,phone,company,domain,image`,
     ).then((response) => {
       response.json().then((data) => {
         setStudentData(data);
