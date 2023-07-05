@@ -35,38 +35,62 @@ export const Form = ({ data, type }: Props) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!type && data?.id) {
-      fetch(`https://dummyjson.com/users/${data.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName: (formRef.current?.elements[0] as HTMLInputElement).value,
-          maidenName: (formRef.current?.elements[1] as HTMLInputElement).value,
-          lastName: (formRef.current?.elements[2] as HTMLInputElement).value,
-          email: (formRef.current?.elements[3] as HTMLInputElement).value,
-          phone: (formRef.current?.elements[4] as HTMLInputElement).value,
-          domain: (formRef.current?.elements[5] as HTMLInputElement).value,
-          company: {
-            ...data.company,
-            name: (formRef.current?.elements[6] as HTMLInputElement).value,
-          },
-          image: (formRef.current?.elements[7] as HTMLInputElement).value,
-        }),
-      })
-        .then((response) => {
-          response.json().then((data) => {
-            const dummyData = students.map((student) => {
-              return student.id === data.id ? data : student;
-            });
+      const dummyStudent = {
+        id: data.id,
+        firstName: (formRef.current?.elements[0] as HTMLInputElement).value,
+        maidenName: (formRef.current?.elements[1] as HTMLInputElement).value,
+        lastName: (formRef.current?.elements[2] as HTMLInputElement).value,
+        email: (formRef.current?.elements[3] as HTMLInputElement).value,
+        phone: (formRef.current?.elements[4] as HTMLInputElement).value,
+        domain: (formRef.current?.elements[5] as HTMLInputElement).value,
+        company: {
+          ...data.company,
+          name: (formRef.current?.elements[6] as HTMLInputElement).value,
+        },
+        image: (formRef.current?.elements[7] as HTMLInputElement).value,
+      };
 
-            setStudents(dummyData);
-            navigate('/students', {
-              state: 'updated',
-            });
-          });
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      const dummyData = students.map((student) => {
+        return student.id === data.id ? dummyStudent : student;
+      });
+
+      setStudents(dummyData);
+      navigate('/students', { state: 'updated' });
+
+      // ALTERNATIVE APPROACH USING FETCH API
+
+      // fetch(`https://dummyjson.com/users/${data.id}`, {
+      //   method: 'PUT',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({
+      //     firstName: (formRef.current?.elements[0] as HTMLInputElement).value,
+      //     maidenName: (formRef.current?.elements[1] as HTMLInputElement).value,
+      //     lastName: (formRef.current?.elements[2] as HTMLInputElement).value,
+      //     email: (formRef.current?.elements[3] as HTMLInputElement).value,
+      //     phone: (formRef.current?.elements[4] as HTMLInputElement).value,
+      //     domain: (formRef.current?.elements[5] as HTMLInputElement).value,
+      //     company: {
+      //       ...data.company,
+      //       name: (formRef.current?.elements[6] as HTMLInputElement).value,
+      //     },
+      //     image: (formRef.current?.elements[7] as HTMLInputElement).value,
+      //   }),
+      // })
+      //   .then((response) => {
+      //     response.json().then((data) => {
+      //       const dummyData = students.map((student) => {
+      //         return student.id === data.id ? data : student;
+      //       });
+
+      //       setStudents(dummyData);
+      //       navigate('/students', {
+      //         state: 'updated',
+      //       });
+      //     });
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
     }
 
     if (type === 'add') {
