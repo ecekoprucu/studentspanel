@@ -71,7 +71,7 @@ export const Form = ({ data, type }: Props) => {
 
     if (type === 'add') {
       const dummyStudent = {
-        id: students.length,
+        id: students.length + 1,
         firstName: (formRef.current?.elements[0] as HTMLInputElement).value,
         maidenName: (formRef.current?.elements[1] as HTMLInputElement).value,
         lastName: (formRef.current?.elements[2] as HTMLInputElement).value,

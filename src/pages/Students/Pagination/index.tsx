@@ -1,10 +1,11 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useContext } from 'react';
 
 import * as Styled from './styled';
+import DataContext from 'src/context/studentContext';
+import { ContextType } from 'src/utils/types';
 
 type Props = {
   pageIndex: number;
-  totalData: number;
   setPageIndex: (pageIndex: number) => void;
   selectedSize: number;
   setSelectedSize: (selectedSize: number) => void;
@@ -14,11 +15,12 @@ const sizes = [5, 6, 7, 8, 9, 10];
 
 export const Pagination = ({
   pageIndex,
-  totalData,
   setPageIndex,
   selectedSize,
   setSelectedSize,
 }: Props) => {
+  const { totalData } = useContext(DataContext) as ContextType;
+
   const lastPage =
     totalData % selectedSize === 0
       ? Math.floor(totalData / selectedSize) - 1

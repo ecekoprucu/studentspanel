@@ -29,4 +29,6 @@ export type Student = {
 export type ContextType = {
   students: Student[];
   setStudents: (students: Student[]) => void;
+  totalData: number;
+  setTotalData: (totalData: number) => void;
 };

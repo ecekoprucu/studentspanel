@@ -9,9 +9,12 @@ type Props = {
 
 export const DataProvider = ({ children }: Props) => {
   const [students, setStudents] = useState<Student[]>([]);
+  const [totalData, setTotalData] = useState<number>(0);
 
   return (
-    <DataContext.Provider value={{ students, setStudents }}>
+    <DataContext.Provider
+      value={{ students, setStudents, totalData, setTotalData }}
+    >
       {children}
     </DataContext.Provider>
   );

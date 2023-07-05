@@ -11,9 +11,10 @@ import DataContext from 'src/context/studentContext';
 import { ContextType } from 'src/utils/types';
 
 export const Students = () => {
-  const { students, setStudents } = useContext(DataContext) as ContextType;
+  const { students, setStudents, totalData, setTotalData } = useContext(
+    DataContext,
+  ) as ContextType;
   const [pageIndex, setPageIndex] = useState(0);
-  const [totalData, setTotalData] = useState(0);
   const [selectedSize, setSelectedSize] = useState(5);
 
   const [searchText, setSearchText] = useState('');
@@ -67,7 +68,6 @@ export const Students = () => {
 
         <Styled.PaginationWrappeer>
           <Pagination
-            totalData={totalData}
             pageIndex={pageIndex}
             setPageIndex={setPageIndex}
             selectedSize={selectedSize}
